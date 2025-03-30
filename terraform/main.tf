@@ -20,3 +20,13 @@ module "backend" {
 module "sns" {
   source = "./modules/sns"
 }
+
+module "sqs" {
+  source = "./modules/sqs"
+}
+
+resource "aws_sns_topic_subscription" "sns_topic_subscription" {
+  topic_arn = module.sns.sns_topic_arn
+  protocol  = "sqs"
+  endpoint  = module.sqs.sqs_queue_arn
+}
