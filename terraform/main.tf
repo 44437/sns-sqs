@@ -16,3 +16,7 @@ provider "aws" {
 module "backend" {
   source = "./modules/backend"
 }
+
+module "sns" {
+  source = "./modules/sns"
+}
