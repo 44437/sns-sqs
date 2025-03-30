@@ -1,4 +1,3 @@
-
 terraform {
   required_providers {
     aws = {
@@ -12,4 +11,8 @@ provider "aws" {
   shared_config_files      = ["/Users/ercantopuz/.aws/config"]
   shared_credentials_files = ["/Users/ercantopuz/.aws/credentials"]
   #   profile                  = "use_default_for_now"
+}
+
+module "backend" {
+  source = "./modules/backend"
 }
